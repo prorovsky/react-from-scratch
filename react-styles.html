@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React Styles</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <style>
+        #root {
+            display: grid;
+            justify-items: center;
+            align-items: center;
+            height: 90vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Letter extends React.Component {
+            render() {
+                const letterStyle = {
+                    padding: 10,
+                    margin: 10,
+                    backgroundColor: this.props.bgColor,
+                    color: "#333",
+                    display: "inline-block",
+                    fontFamily: "monospace",
+                    fontSize: 32,
+                    textAlign: "center"
+                }
+
+                return <div style={letterStyle}>{this.props.children}</div>
+            }
+        }
+
+        ReactDOM.render(
+            <div>
+            <Letter bgColor="red">R</Letter>
+            <Letter bgColor="orange">A</Letter>
+            <Letter bgColor="yellow">I</Letter>
+            <Letter bgColor="green">N</Letter>
+            <Letter bgColor="lightblue">B</Letter>
+            <Letter bgColor="blue">O</Letter>
+            <Letter bgColor="violet">W</Letter>
+            </div>,
+            document.getElementById('root')
+        );
+    </script>
+</body>
+</html>
