@@ -37,17 +37,25 @@
             }
         }
 
-        // const theCircle = <Circle bgColor="#F9C240" />;
-
-        function showCircle() {
+        function showCircle(index) {
             const randomValue = (min, max) => Math.floor(min + (Math.random() * (max + 1 - min)));
             const color = `rgb(${randomValue(0, 255)}, ${randomValue(0, 255)}, ${randomValue(0, 255)})`;
-            return <Circle bgColor={color} />;
+            return <Circle key={index + color} bgColor={color} />;
+        }
+
+        function createCircles(num) {
+            const arrCircles = [];
+
+            for (let i = 0; i < num; i++) {
+                arrCircles.push(showCircle(i));
+            }
+
+            return arrCircles;
         }
 
         ReactDOM.render(
             <div>
-                {showCircle()}
+                {createCircles(80)}
             </div>,
             document.getElementById('root')
         );
